@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controller\BarangController;
+use App\Http\Controllers\BarangController;
 use Illuminate\Http\Request;
 
 /*
@@ -19,4 +19,7 @@ use Illuminate\Http\Request;
 //     return view('welcome');
 // });
 
-Route::resource('barang', BarangController::class);
+//Route::resource('barang', BarangController::class);
+
+Route::get('/', [BarangController::class, 'index']);
+Route::get('/cari', [BarangController::class, 'cari']);
