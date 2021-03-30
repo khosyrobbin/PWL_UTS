@@ -40,7 +40,16 @@ class BarangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'id_barang' => 'required',
+            'kode_barang' => 'required',
+            'nama_barang' => 'required',
+            'kategori_barang' => 'required',
+            'harga' => 'required',
+            'qty' => 'required',
+        ]);
+        Barang::create($request->all());
+        return redirect()->route('index')->with('sucsess', 'Barang berhasil ditambahkan');
     }
 
     /**

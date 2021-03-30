@@ -24,3 +24,4 @@ use Illuminate\Http\Request;
 Route::get('/', [BarangController::class, 'index']);
 Route::get('/cari', [BarangController::class, 'cari']);
 Route::get('/update', [BarangController::class, 'update']);
+Route::post('/', [BarangController::class, 'store']);
