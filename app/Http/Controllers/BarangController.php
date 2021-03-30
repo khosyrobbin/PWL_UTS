@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Barang;
 use Illuminate\Http\Request;
-
+use Database\Seeders\BarangSeeder;
 use Illuminate\Support\Facades\DB;
 
 
@@ -72,9 +72,18 @@ class BarangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_barang)
     {
-        //
+        $request->validate([
+            'id_barang' => 'required',
+            'kode_barang' => 'required',
+            'nama_barang' => 'required',
+            'kategori_barang' => 'required',
+            'harga' => 'required',
+            'qty' => 'required',
+        ]);
+        Barang::create($request->all());
+        return redirect()->route('index')->with('sucsess', 'Barang berhasil ditambahkan');
     }
 
     /**
