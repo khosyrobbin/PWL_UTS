@@ -88,5 +88,12 @@ class BarangController extends Controller
         //
     }
 
-    
+    public function cari(Request $request)
+    {
+        $cari = $request->cari;
+        $barang = DB::table('barangs')
+		->where('kategori_barang','like',"%".$cari."%")
+		->paginate();
+        return view('index',['barangs'=>$barang]);
+    }
 }
