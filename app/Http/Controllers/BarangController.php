@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Barang;
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\DB;
+
 
 class BarangController extends Controller
 {
@@ -13,8 +16,11 @@ class BarangController extends Controller
      */
     public function index()
     {
-        //
+        $barang = DB::table('barangs')->paginate(10);
+        return view('index',['barangs'=>$barang]);
     }
+
+    
 
     /**
      * Show the form for creating a new resource.
@@ -81,4 +87,6 @@ class BarangController extends Controller
     {
         //
     }
+
+    
 }
