@@ -15,7 +15,11 @@
 	
 	<h3>Data Barang</h3>
  
-        
+        <p>Cari Kategori :</p>
+    <form action="/cari" method="GET">
+        <input type="text" name="cari" placeholder="Cari kategori .." value="{{ old('cari') }}">
+        <input type="submit" value="CARI">
+    </form>
 
 	<table border="1">
 		<tr>
